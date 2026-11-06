@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: stripe
+    schema: stripe
+    description: Stripe sources
+    tables:
+      - name: payments
+        description: One record per payment

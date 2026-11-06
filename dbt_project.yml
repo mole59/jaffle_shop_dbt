@@ -40,6 +40,12 @@ models:
   jaffle_shop_dbt:
     staging:
       +materialized: view
+      stripe:
+        +materialized: view
     marts:
       +materialized: table
+      Finance:
+        +materialized: table
+      Marketing:
+        +materialized: table
 
