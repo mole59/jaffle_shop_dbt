@@ -14,8 +14,7 @@ sources:
       - name: items
         description: Items included in an order
       - name: stores
-        config:
-          loaded_at_field: opened_at
+        description: One record per store
       - name: products
         description: One record per SKU for items sold in stores
       - name: supplies
