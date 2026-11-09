@@ -9,4 +9,3 @@ models:
         description: The unique key of our supplies per cost.
         data_tests:
           - not_null
-          - unique

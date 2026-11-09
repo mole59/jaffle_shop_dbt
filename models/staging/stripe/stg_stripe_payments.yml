@@ -2,7 +2,7 @@ models:
   - name: stg_stripe_payments
     description: Payment data, one row per payment.
     columns:
-      - name: id
+      - name: payment_id
         description: The unique key for each payment.
         data_tests:
           - not_null
