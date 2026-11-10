@@ -1,0 +1,17 @@
+models:
+  - name: stg_classic__raw_payments
+    description: Payment data with basic cleaning and transformation applied, one row per payment.
+    columns:
+      - name: payment_id
+        description: The unique key for each payment.
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: The order to which the payment applies.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_classic__raw_orders')
+                field: id

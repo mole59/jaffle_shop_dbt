@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: classic
+    schema: Jaffle_Shop_Classic
+    description: E-commerce data for the Jaffle Shop (Classic Version)
+    tables:
+      - name: raw_customer
+        description: One record per person who has purchased one or more items
+      - name: raw_orders
+        description: One record per order
+      - name: raw_payments
+        description: One record per payment
