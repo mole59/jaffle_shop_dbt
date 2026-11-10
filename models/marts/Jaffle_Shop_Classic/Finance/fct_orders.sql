@@ -1,3 +1,5 @@
+{{ config(schema='dbt_mm_classic') }}
+
 with orders as (
 
     select * from {{ ref('stg_classic__raw_orders') }}

@@ -54,9 +54,7 @@ models:
     marts:
       Jaffle_Shop_Classic:
         Finance:
-          +schema: dbt_mm_classic
           +materialized: table
         Marketing:
-          +schema: dbt_mm_classic
           +materialized: table
  
