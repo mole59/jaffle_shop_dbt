@@ -53,5 +53,5 @@ models:
         +materialized: view
     marts:
       Jaffle_Shop_Classic:
-        +database: dbt_mm_classic
+        +schema: dbt_mm_classic
         +materialized: table
