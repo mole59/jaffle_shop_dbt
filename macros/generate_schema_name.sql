@@ -17,7 +17,7 @@
 
     {# specified custom schemas go to the default target schema for non-prod targets #}
     {% else %}
-        {{ default_schema }}
+        {{ default_schema }}_{{ custom_schema_name | trim }}
     {% endif %}
 
 {% endmacro %}
