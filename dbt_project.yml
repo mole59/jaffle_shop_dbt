@@ -48,6 +48,7 @@ models:
     staging:
       +materialized: view
       classic:
+        +schema: classic_stg
         +materialized: view
       stripe:
         +materialized: view
