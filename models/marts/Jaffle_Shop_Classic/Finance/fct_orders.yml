@@ -30,7 +30,7 @@ models:
               arguments:
                 values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
-      - name: amount
+      - name: payment_amount
         description: Total amount (AUD) of the order
         tests:
           - not_null
