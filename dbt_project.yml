@@ -51,6 +51,7 @@ models:
         +schema: classic_stg
         +materialized: view
       stripe:
+        +schema: default_stg
         +materialized: view
     marts:
       Jaffle_Shop_Classic:
