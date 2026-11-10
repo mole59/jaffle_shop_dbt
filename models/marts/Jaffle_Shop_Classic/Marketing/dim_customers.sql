@@ -1,5 +1,5 @@
 with customers as (
-    select * from {{ ref('stg_classic_raw_customer') }}
+    select * from {{ ref('stg_classic__raw_customer') }}
 ),
 
 orders as (
