@@ -19,3 +19,13 @@ sources:
         description: One record per SKU for items sold in stores
       - name: supplies
         description: One record per supply per SKU of items sold in stores
+  - name: classic
+    schema: Jaffle_Shop_Classic
+    description: E-commerce data for the Jaffle Shop
+    tables:
+      - name: raw_customers
+        description: One record per person who has purchased one or more items
+      - name: raw_orders
+        description: One record per order
+      - name: raw_payments
+        description: One record per payment

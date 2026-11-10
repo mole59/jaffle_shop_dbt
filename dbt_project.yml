@@ -15,7 +15,7 @@ profile: '70506183178302'
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
+seed-paths: ["seeds","seeds/Jaffle_Shop_Classic"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -23,6 +23,13 @@ target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
+
+# Seeds
+
+seeds:
+  jaffle_shop_dbt:
+    Jaffle_Shop_Classic:
+      +schema: Jaffle_Shop_Classic
 
 
 # Configuring models
