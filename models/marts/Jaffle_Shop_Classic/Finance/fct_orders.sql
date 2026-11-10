@@ -1,9 +1,9 @@
 with orders as  (
-    select * from {{ ref ('stg_orders' )}}
+    select * from {{ ref ('stg_classic__raw_orders' )}}
 ),
 
 payments as (
-    select * from {{ ref ('stg_stripe_payments') }}
+    select * from {{ ref ('stg_classic__raw_payments') }}
 ),
 
 order_payments as (
