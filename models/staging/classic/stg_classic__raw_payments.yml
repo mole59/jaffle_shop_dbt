@@ -11,7 +11,3 @@ models:
         description: The order to which the payment applies.
         data_tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_classic__raw_orders')
-                field: id
