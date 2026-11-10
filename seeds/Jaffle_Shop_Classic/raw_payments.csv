@@ -112,3 +112,8 @@ id,order_id,payment_method,amount
 111,97,bank_transfer,1400
 112,98,bank_transfer,1000
 113,99,credit_card,2400
+114,100,gift card,1000
+115,101,credit card,100
+116,102,credit card,1900
+117,103,bank transfer,1900
+118,104,credit card,100
