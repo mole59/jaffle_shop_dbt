@@ -6,7 +6,7 @@ with orders as (
 
 payments as (
 
-    select * from {{ ref('stg_classic__raw_payments') }}
+    select * from {{ ref('stg_stripe_payments') }}
 
 ),
 
