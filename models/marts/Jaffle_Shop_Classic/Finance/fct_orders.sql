@@ -1,4 +1,4 @@
-{{ config(schema='dbt_mm_classic') }}
+{{ config(schema='classic') }}
 
 with orders as (
 
