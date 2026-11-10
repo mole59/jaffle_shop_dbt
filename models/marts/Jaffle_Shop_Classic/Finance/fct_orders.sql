@@ -1,30 +1,37 @@
-with orders as  (
-    select * from {{ ref ('stg_classic__raw_orders' )}}
-),
+{% set payment_methods = ['credit_card', 'coupon', 'bank_transfer', 'gift_card'] %}
 
-payments as (
-    select * from {{ ref ('stg_classic__raw_payments') }}
+with orders as (
+
+    select * from {{ ref('stg_orders') }}
+
 ),
 
 order_payments as (
-    select
-        order_id,
-        sum (case when payment_status = 'success' then payment_amount end) as amount
 
-    from payments
-    group by 1
+    select * from {{ ref('order_payments') }}
+
 ),
 
- final as (
+final as (
 
     select
         orders.order_id,
         orders.customer_id,
         orders.order_date,
-        coalesce (order_payments.amount, 0) as amount
+        orders.status,
+
+        {% for payment_method in payment_methods -%}
+
+        order_payments.{{payment_method}}_amount,
+
+        {% endfor -%}
+
+        order_payments.total_amount as amount
 
     from orders
+
     left join order_payments using (order_id)
+
 )
 
 select * from final
