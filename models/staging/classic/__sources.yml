@@ -11,3 +11,5 @@ sources:
         description: One record per order
       - name: raw_payments
         description: One record per payment
+      - name: raw_employees
+        description: Employee to Customer link table 
