@@ -1,0 +1,18 @@
+models:
+  - name: stg_classic__raw_employees
+    description: Employee details table and link to customer_id
+    columns:
+      - name: employee_id
+        description: The unique key for each employee.
+        data_tests:
+          - not_null
+          - unique
+      - name: email
+        description: email address.
+        data_tests:
+          - unique
+      - name: customer_id
+        description: Customer id 
+        data_tests:
+          - not_null
+          - unique 
