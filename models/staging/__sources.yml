@@ -43,53 +43,55 @@ sources:
           - name: vendorid
             description: "The Vendor ID"
             tests:
-              - not null
+              - not_null
               - relationships:
-                to: source('nyctts', 'raw_vendors')
-                field: vendorid
+                  arguments:
+                    to: ref('stg_nyctts__raw_vendors')
+                    field: vendorid
           - name: lpep_pickup_datetime
             description: "The pick-up timestamp"
             tests:
               - not null 
           - name: lpep_dropoff_datetime
             description: "The drop-off timestamp"
-            test:
-              - not null 
+            tests:
+              - not_null 
           - name: store_and_fwd_flag
             description: "Store & Forward flag"
           - name: ratecodeid
             description: "Rate Code ID"
             tests:
-              - not null
+              - not_null
               - relationships:
-                to: source('nycts', 'raw_rate_codes')
-                field: rate_code
+                  arguments:
+                    to: source('stg_nyctts__raw_rate_codes')
+                    field: rate_code
           - name: pulocationid
             description: "Pick-up Location"
             tests:
-              - not null 
+              - not_null 
           - name: dolocationid
             description: "Drop-off Location"
             tests:
-              - not null
+              - not_null
           - name: passenger_count
             description: "Number of Passengers"
             tests:
-              - not null
+              - not_null
               - dbt_utils.accepted_range:
                   min_value: 1
                   inclusive: true
           - name: trip_distance
             description: "Trip Distance"
             tests:
-              - not null
+              - not_null
               - dbt_utils.accepted_range:
                   min_value: 1
                   inclusive: true
-        - name: fare_amount
+          - name: fare_amount
             description: "Fare Amount"
             tests:
-              - not null
+              - not_null
               - dbt_utils.accepted_range:
                   min_value: 1
                   inclusive: true
@@ -106,24 +108,26 @@ sources:
           - name: total_amount
             description: "Total Amount"
             tests:
-              - not null
+              - not_null
               - dbt_utils.accepted_range:
                   min_value: 1
                   inclusive: true
           - name: payment_type
             description: "Payment Type ID"
             tests:
-              - not null
+              - not_null
               - relationships:
-                to: source('nycts', 'raw_payment_types')
-                field: rate_code
+                  arguements:
+                    to: source('stg_nyctts__stg_raw_payment_codes')
+                    field: rate_code
           - name: trip_type
             description: "Trip Type ID"
             tests:
-              - not null
+              - not_null
               - relationships:
-                to: source('nycts', 'raw_trip_types')
-                field: rate_code
+                  arguements:
+                    to: source('stg_nyctts__raw_trip_codes')
+                    field: rate_code
 
   - name: nyctts
     schema: nyc_taxi_seeds
@@ -136,7 +140,7 @@ sources:
             description: Vendor ID 
             tests:
               - unique
-              - not null
+              - not_null
           - name: name 
             description: Vendor Name
           - name: Location 
@@ -148,7 +152,7 @@ sources:
             description: Trip Type ID
             tests:
               - unique
-              - not null
+              - not_null
       - name: raw_payment_types
         description: Payment Types
         columns:
@@ -156,7 +160,7 @@ sources:
             description: Payment Type ID 
             tests:
               - unique
-              - not null
+              - not_null
           - name: description
             description: Payment Type Description
       - name: raw_rate_codes
