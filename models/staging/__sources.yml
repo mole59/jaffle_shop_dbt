@@ -121,7 +121,7 @@ sources:
             tests:
               - not_null
               - relationships:
-                  arguements:
+                  arguments:
                     to: source('stg_nyctts__stg_raw_payment_codes')
                     field: rate_code
           - name: trip_type
@@ -129,7 +129,7 @@ sources:
             tests:
               - not_null
               - relationships:
-                  arguements:
+                  arguments:
                     to: source('stg_nyctts__raw_trip_codes')
                     field: rate_code
 
