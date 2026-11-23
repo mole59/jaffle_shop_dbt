@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: raw_taxi_trips
+  - name: nyc_taxi_trips
     description: "Customer taxi trips. One record per trip"
     columns:
       - name: vendorid
