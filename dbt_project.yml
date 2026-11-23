@@ -55,7 +55,10 @@ models:
       stripe:
         +schema: default_stg
         +materialized: view
-      nyc_taxi_trips:
+      nyctt:
+        +schema: stg_nyctt
+        +materialized: view
+      nyctts:
         +schema: stg_nyctt
         +materialized: view
 
