@@ -9,6 +9,8 @@ source as (
 renamed as (
 
     select
+        trip_type,
+        description
 
     from source
 

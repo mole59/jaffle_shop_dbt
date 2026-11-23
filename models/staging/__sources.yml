@@ -28,8 +28,54 @@ sources:
         description: Calendar
       - name: raw_taxi_zones
         description: Taxi zones in New  York City 
+        columns:
+          - name: locationid
+            description: Zone Location
+          - name: borough
+            description: Zone borough
+          - name: zone
+            description: Zone
+          - name: service_zone
+            description: Service Zone
       - name: raw_taxi_trips
-        description: Customer taxi trips
+        description: "Customer taxi trips"
+        columns:
+          - name: vendorid
+            description: "The Vendor ID"
+          - name: lpep_pickup_datetime
+            description: "The pick-up timestamp"
+          - name: lpep_dropoff_datetime
+            description: "The drop-off timestamp"
+          - name: store_and_fwd_flag
+            description: "Store & Forward flag"
+          - name: ratecodeid
+            description: "Rate Code ID"
+          - name: pulocationid
+            description: "Pick-up Location"
+          - name: dolocationid
+            description: "Drop-off Location"
+          - name: passenger_count
+            description: "Number of Passengers"
+          - name: trip_distance
+            description: "Trip Distance"
+          - name: fare_amount
+            description: "Fare Amount"
+          - name: extra
+            description: "Extras Amount"
+          - name: mta_tax
+            description: "Taxes"
+          - name: tip_amount
+            description: Tip Amount"
+          - name: tolls_amount
+            description: "Tolls Amount"
+          - name: improvement_surcharge
+            description: "Improvement Surcharge"
+          - name: total_amount
+            description: "Total Amount"
+          - name: payment_type
+            description: "Payment Type ID"
+          - name: trip_type
+            description: "Trip Type ID"
 
   - name: nyctts
     schema: nyc_taxi_seeds
@@ -37,5 +83,22 @@ sources:
     tables:
       - name: raw_vendors
         description: Vendor Information
+        columns:
+          - name: vendorid
+            description: Vendor ID 
+            tests:
+              - unique
+              - not null
+          - name: name 
+            description: Vendor Name
+          - name: Location 
+            description: City Location
       - name: raw_trip_types
         description: Trip Types
+        columns:
+          - name: trip_type
+            description: Trip Type ID
+            tests:
+              - unique
+              - not null
+
