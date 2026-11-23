@@ -38,28 +38,61 @@ sources:
           - name: service_zone
             description: Service Zone
       - name: raw_taxi_trips
-        description: "Customer taxi trips"
+        description: "Customer taxi trips. One record per trip"
         columns:
           - name: vendorid
             description: "The Vendor ID"
+            tests:
+              - not null
+              - relationships:
+                to: source('nyctts', 'raw_vendors')
+                field: vendorid
           - name: lpep_pickup_datetime
             description: "The pick-up timestamp"
+            tests:
+              - not null 
           - name: lpep_dropoff_datetime
             description: "The drop-off timestamp"
+            test:
+              - not null 
           - name: store_and_fwd_flag
             description: "Store & Forward flag"
           - name: ratecodeid
             description: "Rate Code ID"
+            tests:
+              - not null
+              - relationships:
+                to: source('nycts', 'raw_rate_codes')
+                field: rate_code
           - name: pulocationid
             description: "Pick-up Location"
+            tests:
+              - not null 
           - name: dolocationid
             description: "Drop-off Location"
+            tests:
+              - not null
           - name: passenger_count
             description: "Number of Passengers"
+            tests:
+              - not null
+              - dbt_utils.accepted_range:
+                  min_value: 1
+                  inclusive: true
           - name: trip_distance
             description: "Trip Distance"
-          - name: fare_amount
+            tests:
+              - not null
+              - dbt_utils.accepted_range:
+                  min_value: 1
+                  inclusive: true
+        - name: fare_amount
             description: "Fare Amount"
+            tests:
+              - not null
+              - dbt_utils.accepted_range:
+                  min_value: 1
+                  inclusive: true
           - name: extra
             description: "Extras Amount"
           - name: mta_tax
@@ -72,10 +105,25 @@ sources:
             description: "Improvement Surcharge"
           - name: total_amount
             description: "Total Amount"
+            tests:
+              - not null
+              - dbt_utils.accepted_range:
+                  min_value: 1
+                  inclusive: true
           - name: payment_type
             description: "Payment Type ID"
+            tests:
+              - not null
+              - relationships:
+                to: source('nycts', 'raw_payment_types')
+                field: rate_code
           - name: trip_type
             description: "Trip Type ID"
+            tests:
+              - not null
+              - relationships:
+                to: source('nycts', 'raw_trip_types')
+                field: rate_code
 
   - name: nyctts
     schema: nyc_taxi_seeds
