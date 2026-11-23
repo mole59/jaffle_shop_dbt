@@ -101,4 +101,21 @@ sources:
             tests:
               - unique
               - not null
+      - name: raw_payment_types
+        description: Payment Types
+        columns:
+          - name: payment_type
+            description: Payment Type ID 
+            tests:
+              - unique
+              - not null
+          - name: description
+            description: Payment Type Description
+      - name: raw_rate_codes
+        description: Rate Code Tables
+        columns:
+          - name: rate_code
+            description: Rate Code ID
+          - name: description
+            description: Rate Code Description
 
