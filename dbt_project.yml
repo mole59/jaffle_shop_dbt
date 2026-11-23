@@ -55,6 +55,10 @@ models:
       stripe:
         +schema: default_stg
         +materialized: view
+      nyc_taxi_trips:
+        +schema: stg_nyctt
+        +materialized: view
+
     marts:
       Jaffle_Shop_Classic:
         Finance:
@@ -63,4 +67,7 @@ models:
         Marketing:
           +schema: classic
           +materialized: table
+      nyc_taxi_trips:
+        +schema: mart_nyctt
+        +materialized: table
  
