@@ -1,0 +1,94 @@
+version: 2
+
+models:
+  - name: raw_taxi_trips
+    description: "Customer taxi trips. One record per trip"
+    columns:
+      - name: vendorid
+        description: "The Vendor ID"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_nyctts__raw_vendors')
+                field: vendorid
+      - name: lpep_pickup_datetime
+        description: "The pick-up timestamp"
+        tests:
+          - not null 
+      - name: lpep_dropoff_datetime
+        description: "The drop-off timestamp"
+        tests:
+          - not_null 
+      - name: store_and_fwd_flag
+        description: "Store & Forward flag"
+      - name: ratecodeid
+        description: "Rate Code ID"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: source('stg_nyctts__raw_rate_codes')
+                field: rate_code
+      - name: pulocationid
+        description: "Pick-up Location"
+        tests:
+          - not_null 
+      - name: dolocationid
+        description: "Drop-off Location"
+        tests:
+          - not_null
+      - name: passenger_count
+        description: "Number of Passengers"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              inclusive: true
+      - name: trip_distance
+        description: "Trip Distance"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              inclusive: true
+      - name: fare_amount
+        description: "Fare Amount"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              inclusive: true
+      - name: extra
+        description: "Extras Amount"
+      - name: mta_tax
+        description: "Taxes"
+      - name: tip_amount
+        description: Tip Amount"
+      - name: tolls_amount
+        description: "Tolls Amount"
+      - name: improvement_surcharge
+        description: "Improvement Surcharge"
+      - name: total_amount
+        description: "Total Amount"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 1
+              inclusive: true
+      - name: payment_type
+        description: "Payment Type ID"
+        tests:
+          - not_null
+          - relationships:
+              arguements:
+                to: source('stg_nyctts__stg_raw_payment_codes')
+                field: rate_code
+      - name: trip_type
+        description: "Trip Type ID"
+        tests:
+          - not_null
+          - relationships:
+              arguements:
+                to: source('stg_nyctts__raw_trip_codes')
+                field: rate_code
