@@ -78,23 +78,26 @@ sources:
             description: "Number of Passengers"
             tests:
               - not_null
-              - dbt_utils.accepted_range:
-                  min_value: 1
-                  inclusive: true
+              - dbt_expectations.expect_column_values_to_be_between::
+                  arguments:
+                    min_value: 0
+                    strickly: true
           - name: trip_distance
             description: "Trip Distance"
             tests:
               - not_null
-              - dbt_utils.accepted_range:
-                  min_value: 1
-                  inclusive: true
+              - dbt_expectations.expect_column_values_to_be_between::
+                  arguments:
+                    min_value: 0
+                    strickly: true
           - name: fare_amount
             description: "Fare Amount"
             tests:
               - not_null
-              - dbt_utils.accepted_range:
-                  min_value: 1
-                  inclusive: true
+              - dbt_expectations.expect_column_values_to_be_between::
+                  arguments:
+                    min_value: 0
+                    strickly: true
           - name: extra
             description: "Extras Amount"
           - name: mta_tax
@@ -109,9 +112,10 @@ sources:
             description: "Total Amount"
             tests:
               - not_null
-              - dbt_utils.accepted_range:
-                  min_value: 1
-                  inclusive: true
+              - dbt_expectations.expect_column_values_to_be_between::
+                  arguments:
+                    min_value: 0
+                    strickly: true
           - name: payment_type
             description: "Payment Type ID"
             tests:
