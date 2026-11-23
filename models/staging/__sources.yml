@@ -20,3 +20,22 @@ sources:
       - name: supplies
         description: One record per supply per SKU of items sold in stores
 
+  - name: nyctt
+    schema: nyc_taxi_src
+    description: Taxi trip data 
+    tables:
+      - name: raw_454_calendar
+        description: Calendar
+      - name: raw_taxi_zones
+        description: Taxi zones in New  York City 
+      - name: raw_taxi_trips
+        description: Customer taxi trips
+
+  - name: nyctts
+    schema: nyc_taxi_seeds
+    description: Static Taxi trip data 
+    tables:
+      - name: raw_vendors
+        description: Vendor Information
+      - name: raw_trip_types
+        description: Trip Types
