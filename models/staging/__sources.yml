@@ -51,7 +51,7 @@ sources:
           - name: lpep_pickup_datetime
             description: "The pick-up timestamp"
             tests:
-              - not null 
+              - not_null 
           - name: lpep_dropoff_datetime
             description: "The drop-off timestamp"
             tests:
@@ -64,7 +64,7 @@ sources:
               - not_null
               - relationships:
                   arguments:
-                    to: source('stg_nyctts__raw_rate_codes')
+                    to: ref('stg_nyctts__raw_rate_codes')
                     field: rate_code
           - name: pulocationid
             description: "Pick-up Location"
@@ -81,7 +81,7 @@ sources:
               - dbt_expectations.expect_column_values_to_be_between::
                   arguments:
                     min_value: 0
-                    strickly: true
+                    strictly: true
           - name: trip_distance
             description: "Trip Distance"
             tests:
@@ -89,7 +89,7 @@ sources:
               - dbt_expectations.expect_column_values_to_be_between::
                   arguments:
                     min_value: 0
-                    strickly: true
+                    strictly: true
           - name: fare_amount
             description: "Fare Amount"
             tests:
@@ -97,7 +97,7 @@ sources:
               - dbt_expectations.expect_column_values_to_be_between::
                   arguments:
                     min_value: 0
-                    strickly: true
+                    strictly: true
           - name: extra
             description: "Extras Amount"
           - name: mta_tax
@@ -115,14 +115,14 @@ sources:
               - dbt_expectations.expect_column_values_to_be_between::
                   arguments:
                     min_value: 0
-                    strickly: true
+                    strictly: true
           - name: payment_type
             description: "Payment Type ID"
             tests:
               - not_null
               - relationships:
                   arguments:
-                    to: source('stg_nyctts__stg_raw_payment_codes')
+                    to: ref('stg_nyctts__stg_raw_payment_codes')
                     field: rate_code
           - name: trip_type
             description: "Trip Type ID"
@@ -130,7 +130,7 @@ sources:
               - not_null
               - relationships:
                   arguments:
-                    to: source('stg_nyctts__raw_trip_codes')
+                    to: ref('stg_nyctts__raw_trip_codes')
                     field: rate_code
 
   - name: nyctts
