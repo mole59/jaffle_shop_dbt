@@ -77,4 +77,4 @@ result as (
 )
 
 select *
-from taxi_trips
+from result
