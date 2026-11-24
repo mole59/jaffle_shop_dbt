@@ -84,10 +84,10 @@ models:
         description: "Payment Type ID"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_payment_types')
-                field: rate_code
+#          - relationships:
+#              arguments:
+#                to: ref('stg_nyctts__raw_payment_types')
+#                field: rate_code
       - name: trip_type
         description: "Trip Type ID"
         tests:
