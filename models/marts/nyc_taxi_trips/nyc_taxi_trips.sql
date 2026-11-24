@@ -38,6 +38,15 @@ vendors as (
     from {{ ref('stg_nyctts__raw_vendors') }}
 ),
 
+zones as (
+
+    select 
+            LocationID
+        ,   Borough
+        ,   Zone 
+    from {{ ref('stg_nyctt__raw_taxi_zones') }}
+)
+
 result as (
 
     select 
@@ -46,8 +55,10 @@ result as (
     ,   tt.lpep_dropoff_datetime
     ,   tt.store_and_fwd_flag
     ,   rc.description as rate 
-    ,   tt.pulocationid
-    ,   tt.dolocationid
+    ,   z1.Zone as pickupZone
+    ,   z1.Borough as pickupBorough
+    ,   z2.Zone as dropoffZone
+    ,   z2.Borough as dropoffBorough
     ,   tt.passenger_count
     ,   tt.trip_distance
     ,   tt.fare_amount
@@ -74,6 +85,11 @@ result as (
     inner join vendors as v 
     on tt.vendorid = v.vendorid
 
+    inner join zones as z1
+    on tt.pulocationid = z1.LocationID
+
+    inner join zones as z2
+    on tt.dolocationid = z2.LocationID
 )
 
 select *

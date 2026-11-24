@@ -22,14 +22,15 @@ models:
         description: "Charge Rate"
         tests:
           - not_null
-      - name: pulocationid
-        description: "Pick-up Location"
-        tests:
-          - not_null 
-      - name: dolocationid
-        description: "Drop-off Location"
-        tests:
-          - not_null
+      - name: pickupZone
+        description: "Journey start Zone"
+      - name: pickupBorough
+        description: "Jouney start borough"
+
+      - name: dropoffZone
+        description: "Journey end Zone"
+      - name: dropoffBorough
+        description: "Jouney end borough"
       - name: passenger_count
         description: "Number of Passengers"
         tests:
