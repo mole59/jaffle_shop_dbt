@@ -5,7 +5,7 @@ models:
       - name: payment_type
         description: Payment Type ID 
         tests:
-          - unique
           - not_null
+          - unique
       - name: description
         description: Payment Type Description

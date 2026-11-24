@@ -4,14 +4,10 @@ models:
   - name: nyc_taxi_trips
     description: "Customer taxi trips. One record per trip"
     columns:
-      - name: vendorid
-        description: "The Vendor ID"
+      - name: vendorName
+        description: "NAme of The Vendor"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_vendors')
-                field: vendorid
       - name: lpep_pickup_datetime
         description: "The pick-up timestamp"
         tests:
@@ -22,14 +18,10 @@ models:
           - not_null 
       - name: store_and_fwd_flag
         description: "Store & Forward flag"
-      - name: RatecodeID
-        description: "Rate Code ID"
+      - name: rate
+        description: "Charge Rate"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_rate_codes')
-                field: rate_code
       - name: pulocationid
         description: "Pick-up Location"
         tests:
@@ -80,19 +72,11 @@ models:
               arguments:
                 min_value: 1
                 inclusive: true
-      - name: payment_type
-        description: "Payment Type ID"
+      - name: paymentType
+        description: "Payment Type"
         tests:
           - not_null
-  #        - relationships:
-  #            arguments:
-  #              to: ref('stg_nyctts__raw_payment_types')
-  #              field: rate_code
-      - name: trip_type
-        description: "Trip Type ID"
+      - name: tripType
+        description: "Type of Trip"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_trip_types')
-                field: trip_type
