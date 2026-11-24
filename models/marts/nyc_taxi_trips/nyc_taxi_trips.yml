@@ -15,7 +15,7 @@ models:
       - name: lpep_pickup_datetime
         description: "The pick-up timestamp"
         tests:
-          - not null 
+          - not_null 
       - name: lpep_dropoff_datetime
         description: "The drop-off timestamp"
         tests:
