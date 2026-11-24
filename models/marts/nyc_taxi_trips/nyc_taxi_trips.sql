@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized='incremental'
+    )
+}}
 with taxi_trips as (
 
     select *
