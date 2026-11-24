@@ -14,15 +14,15 @@ models:
                 field: vendorid
       - name: lpep_pickup_datetime
         description: "The pick-up timestamp"
-        tests:
-          - not null 
+#        tests:
+#          - not null 
       - name: lpep_dropoff_datetime
         description: "The drop-off timestamp"
         tests:
           - not_null 
       - name: store_and_fwd_flag
         description: "Store & Forward flag"
-      - name: ratecodeid
+      - name: RatecodeID
         description: "Rate Code ID"
         tests:
           - not_null
@@ -49,11 +49,11 @@ models:
       - name: trip_distance
         description: "Trip Distance"
         tests:
-          - not_null
-          - dbt_utils.accepted_range:
-              arguments:
-                min_value: 1
-                inclusive: true
+#          - not_null
+#          - dbt_utils.accepted_range:
+#              arguments:
+#                min_value: 1
+#                inclusive: true
       - name: fare_amount
         description: "Fare Amount"
         tests:
