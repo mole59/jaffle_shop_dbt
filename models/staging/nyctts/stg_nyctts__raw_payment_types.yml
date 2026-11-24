@@ -1,0 +1,11 @@
+models:
+  - name: stg_nyctts__raw_payment_types
+    description: Payment type codes and their descriptions
+    columns:
+      - name: payment_type
+        description: Payment Type ID 
+        tests:
+          - unique
+          - not_null
+      - name: description
+        description: Payment Type Description

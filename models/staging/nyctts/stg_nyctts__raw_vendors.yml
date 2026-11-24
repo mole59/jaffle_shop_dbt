@@ -1,0 +1,13 @@
+models:
+  - name: stg_nyctts__raw_vendors
+    description: Vendor codes and their descriptions
+    columns:
+      - name: VendorID
+        description: Vendor ID 
+        tests:
+          - unique
+          - not_null
+      - name: name 
+        description: Vendor Name
+      - name: Location 
+        description: City Location

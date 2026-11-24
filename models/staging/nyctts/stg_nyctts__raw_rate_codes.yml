@@ -1,0 +1,11 @@
+models:
+  - name: stg_nyctts__raw_rate_codes
+    description: Rate codes and their descriptions
+    columns:
+      - name: rate_code
+        description: Rate Code ID
+        tests:
+          - not_null
+          - unique
+      - name: description
+        description: Rate Code Description

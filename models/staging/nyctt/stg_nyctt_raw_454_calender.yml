@@ -1,0 +1,31 @@
+models:
+  - name: stg_nyctt__raw_454_calendar
+    description: Calendar
+    columns:
+      - name: Date 
+        description: Date 
+        tests:
+          - not_null
+          - unique
+      - name: FiscalYear
+        description: The fiscal year
+      - name: FiscalQuarter
+        description: The fiscal quarter
+      - name: FiscalMonthNumber
+        description: The fiscal month number
+      - name: FiscalMonthOfQuarter
+        description: The fiscal month of the fiscal quarter
+      - name: FiscalWeekIfYear
+        description: The fiscal week within the fiscal year
+      - name: DayOfWeek
+        description: The Day of the Week
+      - name: FiscalMonthName
+        description: The name of the month
+      - name: FiscalMonthYear
+        description: The fiscal month year
+      - name: FiscalQuarterYear
+        description: The quarter of the fiscal year
+      - name: DayOfMonthNumber
+        description: The day number within the month
+      - name: DayName
+        description: The day in text

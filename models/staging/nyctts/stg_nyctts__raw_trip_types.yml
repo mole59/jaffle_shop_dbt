@@ -1,0 +1,11 @@
+models:
+  - name: stg_nyctts__raw_trip_types
+    description: Trip types and their descriptions
+    columns:
+      - name: trip_type
+        description: Trip Type ID
+        tests:
+          - unique
+          - not_null
+      - name: description
+        description: Rate type description
