@@ -5,7 +5,7 @@ models:
     description: "Customer taxi trips. One record per trip"
     columns:
       - name: vendorName
-        description: "NAme of The Vendor"
+        description: "Name of The Vendor"
         data_type: varchar(50)
         tests:
           - not_null
