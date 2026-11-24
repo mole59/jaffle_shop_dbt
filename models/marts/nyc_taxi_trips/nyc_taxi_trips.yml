@@ -43,22 +43,25 @@ models:
         tests:
           - not_null
           - dbt_utils.accepted_range:
-              min_value: 1
-              inclusive: true
+              arguments:
+                min_value: 1
+                inclusive: true
       - name: trip_distance
         description: "Trip Distance"
         tests:
           - not_null
           - dbt_utils.accepted_range:
-              min_value: 1
-              inclusive: true
+              arguments:
+                min_value: 1
+                inclusive: true
       - name: fare_amount
         description: "Fare Amount"
         tests:
           - not_null
           - dbt_utils.accepted_range:
-              min_value: 1
-              inclusive: true
+              arguments:
+                min_value: 1
+                inclusive: true
       - name: extra
         description: "Extras Amount"
       - name: mta_tax
@@ -74,8 +77,9 @@ models:
         tests:
           - not_null
           - dbt_utils.accepted_range:
-              min_value: 1
-              inclusive: true
+              arguments:
+                min_value: 1
+                inclusive: true
       - name: payment_type
         description: "Payment Type ID"
         tests:
