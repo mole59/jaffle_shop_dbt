@@ -1,0 +1,14 @@
+
+version: 2
+
+sources:
+  - name: nyctt
+    schema: nyc_taxi_src
+    description: Taxi trip data 
+    tables:
+      - name: raw_454_calendar
+        description: Calendar
+      - name: raw_taxi_zones
+        description: Taxi zones in New  York City 
+      - name: raw_taxi_trips
+        description: "Customer taxi trips. One record per trip"

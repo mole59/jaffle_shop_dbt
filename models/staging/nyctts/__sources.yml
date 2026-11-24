@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: nyctts
+    schema: nyc_taxi_seeds
+    description: Static Taxi trip data 
+    tables:
+      - name: raw_vendors
+        description: Vendor Information
+      - name: raw_trip_types
+        description: Trip Types
+      - name: raw_payment_types
+        description: Payment Types
+      - name: raw_rate_codes
+        description: Rate Code Tables
