@@ -45,7 +45,7 @@ zones as (
         ,   Borough
         ,   Zone 
     from {{ ref('stg_nyctt__raw_taxi_zones') }}
-)
+),
 
 result as (
 
@@ -90,6 +90,7 @@ result as (
 
     inner join zones as z2
     on tt.dolocationid = z2.LocationID
+
 )
 
 select *
