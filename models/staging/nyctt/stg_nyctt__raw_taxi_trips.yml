@@ -4,41 +4,41 @@ models:
     columns:
       - name: VendorID
         description: "The Vendor ID"
-        tests:
+        data_tests:
           - not_null
       - name: lpep_pickup_datetime
         description: "The pick-up timestamp"
-        tests:
+        data_tests:
           - not_null 
       - name: lpep_dropoff_datetime
         description: "The drop-off timestamp"
-        tests:
+        data_tests:
           - not_null 
       - name: store_and_fwd_flag
         description: "Store & Forward flag"
       - name: ratecodeid
         description: "Rate Code ID"
-        tests:
+        data_tests:
           - not_null
       - name: pulocationid
         description: "Pick-up Location"
-        tests:
+        data_tests:
           - not_null 
       - name: dolocationid
         description: "Drop-off Location"
-        tests:
+        data_tests:
           - not_null
       - name: passenger_count
         description: "Number of Passengers"
-        tests:
+        data_tests:
           - not_null
       - name: trip_distance
         description: "Trip Distance"
-        tests:
+        data_tests:
           - not_null
       - name: fare_amount
         description: "Fare Amount"
-        tests:
+        data_tests:
           - not_null
       - name: extra
         description: "Extras Amount"
@@ -52,13 +52,13 @@ models:
         description: "Improvement Surcharge"
       - name: total_amount
         description: "Total Amount"
-        tests:
+        data_tests:
           - not_null
       - name: payment_type
         description: "Payment Type ID"
-        tests:
+        data_tests:
           - not_null
       - name: trip_type
         description: "Trip Type ID"
-        tests:
+        data_tests:
           - not_null
