@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('nyctts', 'raw_payment_types') }}
+    select * from {{ source('nyctts', 'stg_nyctts__raw_payment_types') }}
 
 ),
 

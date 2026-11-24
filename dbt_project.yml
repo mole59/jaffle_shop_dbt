@@ -12,7 +12,7 @@ profile: '70506183178302'
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
+model-paths: ["models"."models/staging/nyctts"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds","seeds/Jaffle_Shop_Classic","seeds/nyc_taxi_trips"]
