@@ -95,4 +95,4 @@ models:
           - relationships:
               arguments:
                 to: ref('stg_nyctts__raw_trip_types')
-                field: rate_code
+                field: trip_type
