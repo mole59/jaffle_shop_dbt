@@ -4,8 +4,10 @@ models:
     columns:
       - name: trip_type
         description: Trip Type ID
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: description
         description: Rate type description
+        data_tests:
+          - not_null

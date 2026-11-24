@@ -4,8 +4,10 @@ models:
     columns:
       - name: payment_type
         description: Payment Type ID 
-        tests:
+        data_tests:
           - not_null
           - unique
       - name: description
         description: Payment Type Description
+        data_tests:
+          - not_null

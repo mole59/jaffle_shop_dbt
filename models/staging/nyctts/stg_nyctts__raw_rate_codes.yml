@@ -4,8 +4,10 @@ models:
     columns:
       - name: rate_code
         description: Rate Code ID
-        tests:
+        data_tests:
           - not_null
           - unique
       - name: description
         description: Rate Code Description
+        data_tests:
+          - not_null
