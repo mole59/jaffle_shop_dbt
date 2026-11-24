@@ -53,7 +53,7 @@ result as (
     ,   tt.fare_amount
     ,   tt.extra 
     ,   tt.mta_tax
-    ,   tt.total_amount
+    ,   tt.tip_amount
     ,   tt.tolls_amount
     ,   tt.improvement_surcharge
     ,   tt.total_amount
