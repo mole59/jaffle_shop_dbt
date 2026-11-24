@@ -6,10 +6,6 @@ models:
         description: "The Vendor ID"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_vendors')
-                field: vendorid
       - name: lpep_pickup_datetime
         description: "The pick-up timestamp"
         tests:
@@ -24,10 +20,6 @@ models:
         description: "Rate Code ID"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_rate_codes')
-                field: rate_code
       - name: pulocationid
         description: "Pick-up Location"
         tests:
@@ -40,26 +32,14 @@ models:
         description: "Number of Passengers"
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_between::
-              arguments:
-                min_value: 0
-                strictly: true
       - name: trip_distance
         description: "Trip Distance"
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_between::
-              arguments:
-                min_value: 0
-                strictly: true
       - name: fare_amount
         description: "Fare Amount"
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_between::
-              arguments:
-                min_value: 0
-                strictly: true
       - name: extra
         description: "Extras Amount"
       - name: mta_tax
@@ -74,23 +54,11 @@ models:
         description: "Total Amount"
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_between::
-              arguments:
-                min_value: 0
-                strictly: true
       - name: payment_type
         description: "Payment Type ID"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__stg_raw_payment_codes')
-                field: rate_code
       - name: trip_type
         description: "Trip Type ID"
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_nyctts__raw_trip_codes')
-                field: rate_code

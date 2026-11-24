@@ -86,7 +86,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_nyctts__raw_payment_codes')
+                to: ref('stg_nyctts__raw_payment_types')
                 field: rate_code
       - name: trip_type
         description: "Trip Type ID"
@@ -94,5 +94,5 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_nyctts__raw_trip_codes')
+                to: ref('stg_nyctts__raw_trip_types')
                 field: rate_code
