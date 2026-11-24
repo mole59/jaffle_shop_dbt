@@ -28,7 +28,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: source('stg_nyctts__raw_rate_codes')
+                to: ref('stg_nyctts__raw_rate_codes')
                 field: rate_code
       - name: pulocationid
         description: "Pick-up Location"
@@ -85,14 +85,14 @@ models:
         tests:
           - not_null
           - relationships:
-              arguements:
-                to: source('stg_nyctts__stg_raw_payment_codes')
+              arguments:
+                to: ref('stg_nyctts__raw_payment_codes')
                 field: rate_code
       - name: trip_type
         description: "Trip Type ID"
         tests:
           - not_null
           - relationships:
-              arguements:
-                to: source('stg_nyctts__raw_trip_codes')
+              arguments:
+                to: ref('stg_nyctts__raw_trip_codes')
                 field: rate_code
