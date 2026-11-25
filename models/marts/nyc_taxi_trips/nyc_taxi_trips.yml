@@ -61,7 +61,7 @@ models:
                 inclusive: true
       - name: trip_distance
         description: "Trip Distance"
-        data_type: NUMBER
+        data_type: NUMERIC
         tests:
           - not_null
           - dbt_utils.accepted_range:
@@ -70,7 +70,7 @@ models:
                 inclusive: true
       - name: fare_amount
         description: "Fare Amount"
-        data_type: NUMBER
+        data_type: NUMERIC
         tests:
           - not_null
           - dbt_utils.accepted_range:
@@ -79,22 +79,22 @@ models:
                 inclusive: true
       - name: extra
         description: "Extras Amount"
-        data_type: NUMBER
+        data_type: NUMERIC
       - name: mta_tax
         description: "Taxes"
-        data_type: NUMBER
+        data_type: NUMERIC
       - name: tip_amount
         description: Tip Amount"
-        data_type: NUMBER
+        data_type: NUMERIC
       - name: tolls_amount
         description: "Tolls Amount"
-        data_type: NUMBER
+        data_type: NUMERIC
       - name: improvement_surcharge
         description: "Improvement Surcharge"
-        data_type: NUMBER
+        data_type: NUMERIC
       - name: total_amount
         description: "Total Amount"
-        data_type: NUMBER
+        data_type: NUMERIC
         tests:
           - not_null
           - dbt_utils.accepted_range:
