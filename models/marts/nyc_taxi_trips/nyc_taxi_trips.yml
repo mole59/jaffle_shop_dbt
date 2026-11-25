@@ -40,16 +40,16 @@ models:
           - not_null
       - name: pickupZone
         description: "Journey start Zone"
-        data_type: STRING(30)
+        data_type: STRING(40)
       - name: pickupBorough
         description: "Jouney start borough"
-        data_type: STRING(30)
+        data_type: STRING(40)
       - name: dropoffZone
         description: "Journey end Zone"
-        data_type: STRING(30)
+        data_type: STRING(40)
       - name: dropoffBorough
         description: "Jouney end borough"
-        data_type: STRING(30)
+        data_type: STRING(40)
       - name: passenger_count
         description: "Number of Passengers"
         data_type: INT64
