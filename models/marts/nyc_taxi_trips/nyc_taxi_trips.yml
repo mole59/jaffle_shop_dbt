@@ -1,9 +1,16 @@
 version: 2
 
+groups:
+  - name: nyc_taxi_success
+    owner:
+      name: Ney York Taxi Team
+      email: michael.morris@comsolve
+
 models:
   - name: nyc_taxi_trips
     description: "Customer taxi trips. One record per trip"
     config:
+      group: nyc_taxi_success
       access: public
     columns:
       - name: vendorName
