@@ -3,6 +3,8 @@ version: 2
 models:
   - name: nyc_taxi_trips
     description: "Customer taxi trips. One record per trip"
+    config:
+      access: public
     columns:
       - name: vendorName
         description: "Name of The Vendor"
