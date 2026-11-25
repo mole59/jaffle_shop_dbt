@@ -10,6 +10,8 @@ models:
   - name: nyc_taxi_trips
     description: "Customer taxi trips. One record per trip"
     config:
+      contract: 
+        enforced: true
       group: nyc_taxi_success
       access: public
     columns:
