@@ -17,7 +17,7 @@ models:
     columns:
       - name: vendorName
         description: "Name of The Vendor"
-        data_type: STRING
+        data_type: STRING(40)
         tests:
           - not_null
       - name: lpep_pickup_datetime
@@ -35,21 +35,21 @@ models:
         data_type: BOOL
       - name: rate
         description: "Charge Rate"
-        data_type: STRING
+        data_type: STRING(30)
         tests:
           - not_null
       - name: pickupZone
         description: "Journey start Zone"
-        data_type: STRING
+        data_type: STRING(30)
       - name: pickupBorough
         description: "Jouney start borough"
-        data_type: STRING
+        data_type: STRING(30)
       - name: dropoffZone
         description: "Journey end Zone"
-        data_type: STRING
+        data_type: STRING(30)
       - name: dropoffBorough
         description: "Jouney end borough"
-        data_type: STRING
+        data_type: STRING(30)
       - name: passenger_count
         description: "Number of Passengers"
         data_type: INT64
@@ -61,7 +61,7 @@ models:
                 inclusive: true
       - name: trip_distance
         description: "Trip Distance"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
         tests:
           - not_null
           - dbt_utils.accepted_range:
@@ -70,7 +70,7 @@ models:
                 inclusive: true
       - name: fare_amount
         description: "Fare Amount"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
         tests:
           - not_null
           - dbt_utils.accepted_range:
@@ -79,22 +79,22 @@ models:
                 inclusive: true
       - name: extra
         description: "Extras Amount"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
       - name: mta_tax
         description: "Taxes"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
       - name: tip_amount
         description: Tip Amount"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
       - name: tolls_amount
         description: "Tolls Amount"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
       - name: improvement_surcharge
         description: "Improvement Surcharge"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
       - name: total_amount
         description: "Total Amount"
-        data_type: NUMERIC
+        data_type: NUMERIC(5,2)
         tests:
           - not_null
           - dbt_utils.accepted_range:
@@ -103,11 +103,11 @@ models:
                 inclusive: true
       - name: paymentType
         description: "Payment Type"
-        data_type: STRING
+        data_type: STRING(20)
         tests:
           - not_null
       - name: tripType
         description: "Type of Trip"
-        data_type: STRING
+        data_type: STRING(20)
         tests:
           - not_null
