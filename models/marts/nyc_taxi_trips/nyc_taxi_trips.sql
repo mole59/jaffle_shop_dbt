@@ -1,12 +1,12 @@
 
-with taxi_trips as (
+with taxiTrips as (
 
     select *
 
     from {{ ref('stg_nyctt__raw_taxi_trips') }}
 ),
 
-payment_types as (
+paymentTypes as (
 
     select 
             paymentType
@@ -14,7 +14,7 @@ payment_types as (
     from {{ ref('stg_nyctts__raw_payment_types') }}
 ),
 
-rate_codes as (
+rateCodes as (
 
     select 
             rateCode
@@ -22,7 +22,7 @@ rate_codes as (
     from {{ ref('stg_nyctts__raw_rate_codes') }}
 ),
 
-trip_types as (
+tripTypes as (
 
     select 
             tripType
@@ -72,15 +72,15 @@ result as (
     ,   pt.description as paymentType
     ,   tp.description as tripType
 
-    from taxi_trips as tt 
+    from taxiTrips as tt 
 
-    inner join payment_types as pt 
+    inner join paymentTypes as pt 
     on tt.paymentType = pt.paymentType
 
-    inner join rate_codes as rc 
+    inner join rateCodes as rc 
     on tt.rateCodeId = rc.rateCode 
 
-    inner join trip_types as tp 
+    inner join tripTypes as tp 
     on tt.tripType = tp.tripType
 
     inner join vendors as v 
