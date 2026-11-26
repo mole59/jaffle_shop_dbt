@@ -44,7 +44,7 @@ zones as (
     select 
             locationId
         ,   borough
-        ,   Zone 
+        ,   zone 
     from {{ ref('stg_nyctt__raw_taxi_zones') }}
 ),
 
@@ -56,10 +56,10 @@ result as (
     ,   tt.dropoffDateTime
     ,   tt.storeAndForwardFlag
     ,   rc.description as rate 
-    ,   z1.Zone as pickupZone
-    ,   z1.Borough as pickupBorough
-    ,   z2.Zone as dropoffZone
-    ,   z2.Borough as dropoffBorough
+    ,   puZ.zone as pickupZone
+    ,   puZ.borough as pickupBorough
+    ,   doZ.zone as dropoffZone
+    ,   doZ.borough as dropoffBorough
     ,   tt.passengerCount
     ,   {{ format_numeric_columns('tt.tripDistance', 2) }} as tripDistance
     ,   {{ format_numeric_columns('tt.fareAmount', 2) }} as fareAmount
@@ -86,11 +86,11 @@ result as (
     inner join vendors as v 
     on tt.vendorId = v.vendorId
 
-    inner join zones as z1
-    on tt.pickupLocationId = z1.locationId
+    inner join zones as puZ
+    on tt.pickupLocationId = puZ.locationId
 
-    inner join zones as z2
-    on tt.dropoffLocationId = z2.locationId
+    inner join zones as doZ
+    on tt.dropoffLocationId = doZ.locationId
 
 )
 
