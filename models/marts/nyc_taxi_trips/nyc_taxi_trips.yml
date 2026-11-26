@@ -20,22 +20,22 @@ models:
         data_type: STRING(40)
         tests:
           - not_null
-      - name: lpep_pickup_datetime
+      - name: pickupDatetime
         description: "The pick-up timestamp"
         data_type: TIMESTAMP
         tests:
           - not_null 
-      - name: lpep_dropoff_datetime
+      - name: dropoffDateTime
         description: "The drop-off timestamp"
         data_type: TIMESTAMP
         tests:
           - not_null 
-      - name: store_and_fwd_flag
+      - name: storeAndForwardFlag
         description: "Store & Forward flag"
         data_type: BOOL
       - name: rate
         description: "Charge Rate"
-        data_type: STRING(30)
+        data_type: STRING(20)
         tests:
           - not_null
       - name: pickupZone
@@ -50,7 +50,7 @@ models:
       - name: dropoffBorough
         description: "Jouney end borough"
         data_type: STRING(40)
-      - name: passenger_count
+      - name: passengerCount
         description: "Number of Passengers"
         data_type: INT64
         tests:
@@ -59,7 +59,7 @@ models:
               arguments:
                 min_value: 1
                 inclusive: true
-      - name: trip_distance
+      - name: tripDistance
         description: "Trip Distance"
         data_type: NUMERIC(5,2)
         tests:
@@ -68,7 +68,7 @@ models:
               arguments:
                 min_value: 0.1
                 inclusive: true
-      - name: fare_amount
+      - name: fareAmount
         description: "Fare Amount"
         data_type: NUMERIC(5,2)
         tests:
@@ -80,19 +80,19 @@ models:
       - name: extra
         description: "Extras Amount"
         data_type: NUMERIC(5,2)
-      - name: mta_tax
+      - name: mtaTax
         description: "Taxes"
         data_type: NUMERIC(5,2)
-      - name: tip_amount
+      - name: tipAmount
         description: Tip Amount"
         data_type: NUMERIC(5,2)
-      - name: tolls_amount
+      - name: tollsAmount
         description: "Tolls Amount"
         data_type: NUMERIC(5,2)
-      - name: improvement_surcharge
+      - name: improvementSurcharge
         description: "Improvement Surcharge"
         data_type: NUMERIC(5,2)
-      - name: total_amount
+      - name: totalAmount
         description: "Total Amount"
         data_type: NUMERIC(5,2)
         tests:

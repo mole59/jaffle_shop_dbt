@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        locationid,
+        locationid as locationId,
         borough,
         zone,
         service_zone

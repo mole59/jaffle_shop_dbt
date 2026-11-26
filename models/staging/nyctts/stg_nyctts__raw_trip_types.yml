@@ -2,7 +2,7 @@ models:
   - name: stg_nyctts__raw_trip_types
     description: Trip types and their descriptions
     columns:
-      - name: trip_type
+      - name: tripType
         description: Trip Type ID
         data_tests:
           - unique

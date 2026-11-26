@@ -2,7 +2,7 @@ models:
   - name: stg_nyctts__raw_payment_types
     description: Payment type codes and their descriptions
     columns:
-      - name: payment_type
+      - name: paymentType
         description: Payment Type ID 
         data_tests:
           - not_null

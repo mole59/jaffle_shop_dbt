@@ -2,63 +2,63 @@ models:
   - name: stg_nyctt__raw_taxi_trips
     description: Single taxi trips
     columns:
-      - name: VendorID
+      - name: vendorId
         description: "The Vendor ID"
         data_tests:
           - not_null
-      - name: lpep_pickup_datetime
+      - name: pickupDatetime
         description: "The pick-up timestamp"
         data_tests:
           - not_null 
-      - name: lpep_dropoff_datetime
+      - name: dropoffDateTime
         description: "The drop-off timestamp"
         data_tests:
           - not_null 
-      - name: store_and_fwd_flag
+      - name: storeAndForwardFlag
         description: "Store & Forward flag"
-      - name: ratecodeid
+      - name: rateCodeId
         description: "Rate Code ID"
         data_tests:
           - not_null
-      - name: pulocationid
+      - name: pickupLocationId
         description: "Pick-up Location"
         data_tests:
           - not_null 
-      - name: dolocationid
+      - name: dropoffLocationId
         description: "Drop-off Location"
         data_tests:
           - not_null
-      - name: passenger_count
+      - name: passengerCount
         description: "Number of Passengers"
         data_tests:
           - not_null
-      - name: trip_distance
+      - name: tripDistance
         description: "Trip Distance"
         data_tests:
           - not_null
-      - name: fare_amount
+      - name: fareAmount
         description: "Fare Amount"
         data_tests:
           - not_null
       - name: extra
         description: "Extras Amount"
-      - name: mta_tax
+      - name: mtaTax
         description: "Taxes"
-      - name: tip_amount
+      - name: tipAmount
         description: Tip Amount"
-      - name: tolls_amount
+      - name: tollsAmount
         description: "Tolls Amount"
-      - name: improvement_surcharge
+      - name: improvementSurcharge
         description: "Improvement Surcharge"
-      - name: total_amount
+      - name: totalAmount
         description: "Total Amount"
         data_tests:
           - not_null
-      - name: payment_type
+      - name: paymentType
         description: "Payment Type ID"
         data_tests:
           - not_null
-      - name: trip_type
+      - name: tripType
         description: "Trip Type ID"
         data_tests:
           - not_null

@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        rate_code,
+        rate_code as rateCode,
         description
 
     from source

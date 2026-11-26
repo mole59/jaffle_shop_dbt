@@ -2,7 +2,7 @@ models:
   - name: stg_nyctts__raw_vendors
     description: Vendor codes and their descriptions
     columns:
-      - name: VendorID
+      - name: vendorId
         description: Vendor ID 
         data_tests:
           - unique

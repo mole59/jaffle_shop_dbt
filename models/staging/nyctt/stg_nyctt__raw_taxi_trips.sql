@@ -9,24 +9,24 @@ source as (
 renamed as (
 
     select
-        vendorid,
-        lpep_pickup_datetime,
-        lpep_dropoff_datetime,
-        store_and_fwd_flag,
-        ratecodeid,
-        pulocationid,
-        dolocationid,
-        passenger_count,
-        trip_distance,
-        fare_amount,
+        vendorid as vendorId,
+        lpep_pickup_datetime as pickupDatetime,
+        lpep_dropoff_datetime as dropoffDateTime,
+        store_and_fwd_flag as storeAndForwardFlag,
+        ratecodeid as rateCodeId,
+        pulocationid as pickupLocationId,
+        dolocationid as dropoffLocationId,
+        passenger_count as passengerCount,
+        trip_distance as tripDistance,
+        fare_amount as fareAmount,
         extra,
-        mta_tax,
-        tip_amount,
-        tolls_amount,
-        improvement_surcharge,
-        total_amount,
-        payment_type,
-        trip_type
+        mta_tax as mtaTax,
+        tip_amount as tipAmount,
+        tolls_amount as tollsAmount,
+        improvement_surcharge as improvementSurcharge,
+        total_amount as totalAmount,
+        payment_type as paymentType,
+        trip_type as tripType
 
     from source
 

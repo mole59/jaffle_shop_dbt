@@ -2,7 +2,7 @@ models:
   - name: stg_nyctts__raw_rate_codes
     description: Rate codes and their descriptions
     columns:
-      - name: rate_code
+      - name: rateCode
         description: Rate Code ID
         data_tests:
           - not_null

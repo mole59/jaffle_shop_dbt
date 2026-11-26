@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        payment_type,
+        payment_type as paymentType,
         description
 
     from source

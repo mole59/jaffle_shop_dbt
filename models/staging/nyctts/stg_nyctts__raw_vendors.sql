@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        vendorid,
+        vendorid as vendorId,
         name,
         location
 

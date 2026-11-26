@@ -2,7 +2,7 @@ models:
   - name: stg_nyctt__raw_taxi_zones
     description: Taxi zones definition
     columns:
-      - name: locationid
+      - name: locationId
         description: Zone Location
       - name: borough
         description: Zone borough

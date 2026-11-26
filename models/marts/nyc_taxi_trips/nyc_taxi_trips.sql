@@ -9,7 +9,7 @@ with taxi_trips as (
 payment_types as (
 
     select 
-            payment_type
+            paymentType
         ,   description
     from {{ ref('stg_nyctts__raw_payment_types') }}
 ),
@@ -17,7 +17,7 @@ payment_types as (
 rate_codes as (
 
     select 
-            rate_code
+            rateCode
         ,   description
     from {{ ref('stg_nyctts__raw_rate_codes') }}
 ),
@@ -25,7 +25,7 @@ rate_codes as (
 trip_types as (
 
     select 
-            trip_type
+            tripType
         ,   description
     from {{ ref('stg_nyctts__raw_trip_types') }}
 
@@ -34,7 +34,7 @@ trip_types as (
 vendors as (
 
     select 
-            vendorid
+            vendorId
         ,   name 
     from {{ ref('stg_nyctts__raw_vendors') }}
 ),
@@ -42,8 +42,8 @@ vendors as (
 zones as (
 
     select 
-            LocationID
-        ,   Borough
+            locationId
+        ,   borough
         ,   Zone 
     from {{ ref('stg_nyctt__raw_taxi_zones') }}
 ),
@@ -52,45 +52,45 @@ result as (
 
     select 
         v.name as vendorName
-    ,   tt.lpep_pickup_datetime
-    ,   tt.lpep_dropoff_datetime
-    ,   tt.store_and_fwd_flag
+    ,   tt.pickupDatetime
+    ,   tt.dropoffDateTime
+    ,   tt.storeAndForwardFlag
     ,   rc.description as rate 
     ,   z1.Zone as pickupZone
     ,   z1.Borough as pickupBorough
     ,   z2.Zone as dropoffZone
     ,   z2.Borough as dropoffBorough
-    ,   tt.passenger_count
-    ,   {{ format_numeric_columns('tt.trip_distance', 2) }} as trip_distance
-    ,   {{ format_numeric_columns('tt.fare_amount', 2) }} as fare_amount
+    ,   tt.passengerCount
+    ,   {{ format_numeric_columns('tt.tripDistance', 2) }} as tripDistance
+    ,   {{ format_numeric_columns('tt.fareAmount', 2) }} as fareAmount
     ,   {{ format_numeric_columns('tt.extra', 2) }} as extra 
-    ,   {{ format_numeric_columns('tt.mta_tax', 2) }} as mta_tax
-    ,   {{ format_numeric_columns('tt.tip_amount', 2) }} as tip_amount
-    ,   {{ format_numeric_columns('tt.tolls_amount', 2) }} as tolls_amount
-    ,   {{ format_numeric_columns('tt.improvement_surcharge', 2) }} as improvement_surcharge
-    ,   {{ format_numeric_columns('tt.total_amount', 2) }} as total_amount
+    ,   {{ format_numeric_columns('tt.mtaTax', 2) }} as mtaTax
+    ,   {{ format_numeric_columns('tt.tipAmount', 2) }} as tipAmount
+    ,   {{ format_numeric_columns('tt.tollsAmount', 2) }} as tollsAmount
+    ,   {{ format_numeric_columns('tt.improvementSurcharge', 2) }} as improvementSurcharge
+    ,   {{ format_numeric_columns('tt.totalAmount', 2) }} as totalAmount
     ,   pt.description as paymentType
     ,   tp.description as tripType
 
     from taxi_trips as tt 
 
     inner join payment_types as pt 
-    on tt.payment_type = pt.payment_type
+    on tt.paymentType = pt.paymentType
 
     inner join rate_codes as rc 
-    on tt.ratecodeid = rc.rate_code 
+    on tt.rateCodeId = rc.rateCode 
 
     inner join trip_types as tp 
-    on tt.trip_type = tp.trip_type
+    on tt.tripType = tp.tripType
 
     inner join vendors as v 
-    on tt.vendorid = v.vendorid
+    on tt.vendorId = v.vendorId
 
     inner join zones as z1
-    on tt.pulocationid = z1.LocationID
+    on tt.pickupLocationId = z1.locationId
 
     inner join zones as z2
-    on tt.dolocationid = z2.LocationID
+    on tt.dropoffLocationId = z2.locationId
 
 )
 
