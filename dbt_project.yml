@@ -32,7 +32,10 @@ seeds:
       +schema: Jaffle_Shop_Classic
     nyc_taxi_trips:
       +schema: nyc_taxi_seeds
-  
+
+# Hooks
+
+on-run-start: " {{startRun()}} "
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -73,4 +76,6 @@ models:
       nyc_taxi_trips:
         +schema: mart_nyctt
         +materialized: table
+        +pre_hook: " {{logModelStart(this)}} "
+        +post_hook: " {{logModelEnd(this)}} "
  
