@@ -6,7 +6,7 @@ name: 'jaffle_shop_dbt'
 version: '3.0.0'
 config-version: 2
 
-# This setting configures which "profile" dbt uses for this project.
+# This setting configures which "profile" dbt uses for this project..
 profile: '70506183178302'
 
 # These configurations specify where dbt should look for different types of files.
